@@ -7,5 +7,5 @@
         src: ./{{ item }}
         dest: ~/hello-go-api/{{ item }}
     - name: Deploy in Docker compose
-      community.general.docker_compose:
+      docker_compose:
         project_src: ~/hello-go-api/
