@@ -23,7 +23,8 @@ pipeline {
         }
         stage("Deploying") {
             steps {
-                echo "Integration Test..."
+                echo "Deploying..."
+                ansiblePlaybook credentialsId: 'golang-server-ansible', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deployment.yml'
             }
         }
         stage("Load Testing") {

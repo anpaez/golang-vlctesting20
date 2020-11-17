@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  become: True
+  tasks:
+    - name: Copy Deploy files
+      copy:
+        src: ./{{ item }}
+        dest: ~/hello-go-api/{{ item }}
+    - name: Deploy in Docker compose
+      docker_compose:
+        project_src: ~/hello-go-api/

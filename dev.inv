@@ -1,0 +1,2 @@
+[webservers]
+app.go.vlctesting20.es ansible_user=ansible
