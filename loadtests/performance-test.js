@@ -1,3 +1,6 @@
+import { sleep } from 'k6';
+import http from 'k6/http';
+
 export let options = {
     stages: [
       { duration: '1m', target: 10 }, // simulate ramp-up of traffic from 1 to 10 users over 1 minutes.
