@@ -24,7 +24,7 @@ pipeline {
         stage("Deploying") {
             steps {
                 echo "Deploying..."
-                ansiblePlaybook credentialsId: 'golang-ansible-vlctesting', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deployment.yml'
+                ansiblePlaybook credentialsId: 'golang-server-ansible', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deployment.yml'
             }
         }
         stage("Load Testing") {
