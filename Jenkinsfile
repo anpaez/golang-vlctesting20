@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Checkout") {
-            steps {
-                echo "Checkout"
-            }
-        }
         stage("Build") {
             steps {
                 echo "Building..."
@@ -30,7 +25,7 @@ pipeline {
         stage("Load Testing") {
             steps {
                 echo 'Running K6 performance tests...'
-                sh 'k6 run loadtests/performance-test.js'
+                sh 'k6 run loadtests/performance-test.js --out influxdb=http://165.227.139.210/VLCTesting20-jenkins'
             }
         }
     }
