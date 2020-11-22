@@ -25,7 +25,7 @@ pipeline {
         stage("Load Testing") {
             steps {
                 echo 'Running K6 performance tests...'
-                sh 'k6 run loadtests/performance-test.js --out influxdb=${env.INFLUX_DB_URL}'
+                sh "k6 run loadtests/performance-test.js --out influxdb=${env.INFLUX_DB_URL}"
             }
         }
     }
