@@ -33,7 +33,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func helloVLCTesting(w http.ResponseWriter, r *http.Request) {
-	response := "<h1>¡Hola VLCTesting!</h1>"
+	response := "<h1>¡Hola VLCTesting, Bienvenido!</h1>"
 	fmt.Println(response)
 	fmt.Fprintf(w, response)
 }
