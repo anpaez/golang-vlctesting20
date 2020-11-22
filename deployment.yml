@@ -6,6 +6,10 @@
       copy:
         src: ./
         dest: ~/hello-go-api/
+    - name: Docker-Compose down
+      shell: docker-compose down
+      args:
+        chdir: ~/hello-go-api/
     - name: Deploy in Docker compose
       docker_compose:
         project_src: ~/hello-go-api/
