@@ -35,5 +35,6 @@ pipeline {
         }
         failure {
             slackSend channel: 'vlctesting20', message: "Error al lanzar el pipeline. Ha fallado en: ${env.JOB_NAME}", color: "danger"
+        }
     }
 }
