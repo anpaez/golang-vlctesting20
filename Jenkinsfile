@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def loadTestResult
     stages {
         stage("Build") {
             steps {
@@ -25,7 +26,12 @@ pipeline {
         stage("Load Testing") {
             steps {
                 echo 'Running K6 performance tests...'
-                sh 'k6 run loadtests/performance-test.js --out influxdb=http://165.227.139.210:8086/k6'
+                loadTestResult = sh 'k6 run loadtests/performance-test.js --out influxdb=http://165.227.139.210:8086/k6'
+            }
+        }
+        stage("Send Results") {
+            steps {
+                slackSend channel: 'vlctesting20', message: loadTestResult
             }
         }
     }
