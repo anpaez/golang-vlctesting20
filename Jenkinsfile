@@ -1,4 +1,3 @@
-def loadTestResult = ""
 pipeline {
     agent any
     stages {
@@ -26,7 +25,7 @@ pipeline {
         stage("Load Testing") {
             steps {
                 echo 'Running K6 performance tests...'
-                loadTestResult = sh (
+                def loadTestResult = sh (
                     script: 'k6 run loadtests/performance-test.js --out influxdb=http://165.227.139.210:8086/k6',
                     returnStdout: true
                 )
