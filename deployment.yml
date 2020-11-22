@@ -9,3 +9,5 @@
     - name: Deploy in Docker compose
       docker_compose:
         project_src: ~/hello-go-api/
+        recreate: always
+        restarted: yes
