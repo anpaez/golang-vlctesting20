@@ -25,7 +25,7 @@ pipeline {
         stage("Load Testing") {
             steps {
                 echo 'Running K6 performance tests...'
-                sh 'k6 run loadtests/performance-test.js --out influxdb=http://165.227.139.210:8086/VLCTesting20-jenkins'
+                sh 'k6 run loadtests/performance-test.js --out influxdb=http://165.227.139.210:8086/k6'
             }
         }
     }
